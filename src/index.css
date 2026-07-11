@@ -1,111 +1,190 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+/* ============================================================
+   KGC Consultancy — Global Styles
+   8px design system, Inter font, premium corporate aesthetic
+   ============================================================ */
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  @media (max-width: 1024px) {
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+}
+
+/* ── Base Reset & Root ─────────────────────────────────────── */
+/* Forced reload */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
     font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-navy bg-white text-base leading-relaxed;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  }
+
+  ::selection {
+    @apply bg-accent text-white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold leading-tight tracking-tight text-navy;
+  }
+
+  a {
+    @apply no-underline;
+  }
+
+  img {
+    @apply block max-w-full;
+  }
+
+  button {
+    @apply cursor-pointer border-none bg-transparent;
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+/* ── Typography Scale ──────────────────────────────────────── */
+@layer components {
+  .heading-display {
+    @apply text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-none;
   }
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
+  .heading-xl {
+    @apply text-4xl md:text-5xl font-bold tracking-tight;
   }
-}
 
-body {
-  margin: 0;
-}
-
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
-
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
-
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
+  .heading-lg {
+    @apply text-3xl md:text-4xl font-semibold tracking-tight;
   }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
+
+  .heading-md {
+    @apply text-2xl md:text-3xl font-semibold;
   }
-}
-p {
-  margin: 0;
+
+  .heading-sm {
+    @apply text-xl md:text-2xl font-semibold;
+  }
+
+  .body-lg {
+    @apply text-lg leading-relaxed text-slate-500;
+  }
+
+  .body-md {
+    @apply text-base leading-relaxed text-slate-500;
+  }
+
+  .body-sm {
+    @apply text-sm leading-relaxed text-slate-400;
+  }
+
+  .label-tag {
+    @apply text-xs font-semibold tracking-widest uppercase text-accent;
+  }
+
+  /* ── Containers ─────────────────────────────────────────── */
+  .container-xl {
+    @apply max-w-7xl mx-auto px-6 lg:px-10;
+  }
+
+  .container-lg {
+    @apply max-w-6xl mx-auto px-6 lg:px-10;
+  }
+
+  /* ── Sections ───────────────────────────────────────────── */
+  .section-py {
+    @apply py-24 md:py-32;
+  }
+
+  .section-py-sm {
+    @apply py-16 md:py-20;
+  }
+
+  /* ── Divider ────────────────────────────────────────────── */
+  .divider {
+    @apply w-12 h-0.5 bg-accent my-6;
+  }
+
+  .divider-light {
+    @apply w-12 h-0.5 bg-accent/40 my-6;
+  }
+
+  /* ── Buttons ────────────────────────────────────────────── */
+  .btn-primary {
+    @apply inline-flex items-center gap-3 text-white text-sm font-medium 
+           px-8 py-4 tracking-wide transition-all duration-300
+           hover:-translate-y-0.5 
+           focus:outline-none focus:ring-2 focus:ring-[#f05a28] focus:ring-offset-2;
+    background-color: #f05a28;
+  }
+  .btn-primary:hover {
+    background-color: #d4491c;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-3 border border-navy text-navy text-sm font-medium
+           px-8 py-4 tracking-wide transition-all duration-300
+           hover:bg-navy hover:text-white
+           focus:outline-none focus:ring-2 focus:ring-navy focus:ring-offset-2;
+  }
+
+  .btn-outline-white {
+    @apply inline-flex items-center gap-3 border border-white/40 text-white text-sm font-medium
+           px-8 py-4 tracking-wide transition-all duration-300
+           hover:bg-white/10 hover:border-white
+           focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 text-accent text-sm font-medium
+           tracking-wide transition-all duration-300
+           hover:gap-3;
+  }
+
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
+/* ── Custom scrollbar ──────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { @apply bg-transparent; }
+::-webkit-scrollbar-thumb { @apply bg-slate-300 rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-slate-400; }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+/* ── Force Cache Bypass for Accent Color ────────────────────── */
+/* This ensures the new brand orange applies immediately everywhere without a server restart */
+.text-accent, .hover\:text-accent:hover, .group:hover .group-hover\:text-accent {
+  color: #f05a28 !important;
 }
+.bg-accent, .hover\:bg-accent:hover, .group:hover .group-hover\:bg-accent {
+  background-color: #f05a28 !important;
+}
+.border-accent {
+  border-color: #f05a28 !important;
+}
+.bg-accent\/5 { background-color: rgba(240, 90, 40, 0.05) !important; }
+.bg-accent\/10 { background-color: rgba(240, 90, 40, 0.1) !important; }
+.bg-accent\/20 { background-color: rgba(240, 90, 40, 0.2) !important; }
+.bg-accent\/40 { background-color: rgba(240, 90, 40, 0.4) !important; }
