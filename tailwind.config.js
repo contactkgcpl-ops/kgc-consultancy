@@ -13,7 +13,7 @@ export default {
           lighter: '#374151',
         },
         accent: {
-          DEFAULT: '#f05a28', // Brand orange
+          DEFAULT: '#ec660c', // Brand orange
           dark: '#d4491c',
           light: '#f47952',
         },

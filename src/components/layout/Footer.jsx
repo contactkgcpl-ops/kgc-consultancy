@@ -1,168 +1,158 @@
 import { Link } from 'react-router-dom';
 import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  ArrowRight 
+  Phone,
+  Mail,
+  MapPin,
+  ChevronUp
 } from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
-  return (
-    <footer className="bg-navy pt-8 pb-8 border-t border-slate-800">
-      <div className="container-xl px-4 md:px-8 mx-auto">
-        
-        {/* Top CTA Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center bg-slate-800/50 rounded-2xl p-6 mb-8 border border-slate-700/50">
-          <div className="mb-6 md:mb-0 text-center md:text-left">
-            <h3 className="text-2xl font-semibold text-white mb-2">Ready to launch your brand?</h3>
-            <p className="text-slate-400">Join hands with KGC Consultancy to build market-ready products.</p>
-          </div>
-          <Link 
-            to="/contact"
-            className="btn-primary py-3 px-8 text-sm font-bold tracking-wider uppercase flex items-center gap-2 hover:bg-accent-light transition-all"
-          >
-            Get a Quote <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
-        {/* Main Footer Links */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+  return (
+    <footer className="bg-[#151515] relative overflow-hidden">
+      
+      {/* Top Section */}
+      <div className="container mx-auto px-4 md:px-8 py-8 md:py-10">
+        <div className="flex flex-col lg:flex-row justify-between gap-8 lg:gap-12">
           
-          {/* Brand Column */}
-          <div className="col-span-1 lg:col-span-1">
-            <Link to="/" className="inline-block mb-3 -mt-6">
-              <img 
-                src="/src/assets/images/logo.png" 
-                alt="KGC Private Limited" 
-                className="h-16 md:h-24 w-auto object-contain scale-110 origin-left brightness-0 invert"
+          {/* Left: Idea & Subscribe */}
+          <div className="lg:w-1/2">
+            <h2 className="text-[24px] md:text-[28px] text-white font-medium leading-snug mb-5">
+              Got an <span className="font-serif italic font-light">Idea</span> ? <br/>
+              Want to <span className="text-gray-500 mx-1">/</span> <span className="font-serif italic font-light">Collaborate</span> ?
+            </h2>
+            <div className="flex w-full max-w-[340px] bg-white overflow-hidden p-1 h-10 rounded-[2px]">
+              <input 
+                type="email" 
+                placeholder="Enter your email" 
+                className="flex-1 bg-transparent px-3 text-black outline-none placeholder:text-gray-500 text-xs"
               />
-            </Link>
-            <p className="text-slate-400 text-sm leading-relaxed mb-6">
-              Your trusted partner in end-to-end product development, formulation, and supply chain consultancy. We transform ideas into successful brands.
-            </p>
-            <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-accent hover:text-white transition-colors">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-accent hover:text-white transition-colors">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-accent hover:text-white transition-colors">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-accent hover:text-white transition-colors">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
-              </a>
+              <button className="bg-black text-white px-5 font-bold text-[12px] tracking-wide rounded-[2px] hover:bg-[#ec660c] transition-colors">
+                Subscribe
+              </button>
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-white font-semibold mb-6 uppercase tracking-wider text-sm">Quick Links</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/" className="text-slate-400 hover:text-accent transition-colors text-sm flex items-center gap-2 group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-slate-700 group-hover:bg-accent transition-colors" /> Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" className="text-slate-400 hover:text-accent transition-colors text-sm flex items-center gap-2 group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-slate-700 group-hover:bg-accent transition-colors" /> About Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/categories" className="text-slate-400 hover:text-accent transition-colors text-sm flex items-center gap-2 group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-slate-700 group-hover:bg-accent transition-colors" /> Categories
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="text-slate-400 hover:text-accent transition-colors text-sm flex items-center gap-2 group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-slate-700 group-hover:bg-accent transition-colors" /> Services
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="text-slate-400 hover:text-accent transition-colors text-sm flex items-center gap-2 group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-slate-700 group-hover:bg-accent transition-colors" /> Contact Us
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h4 className="text-white font-semibold mb-6 uppercase tracking-wider text-sm">Our Expertise</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/services" className="text-slate-400 hover:text-accent transition-colors text-sm flex items-center gap-2 group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-slate-700 group-hover:bg-accent transition-colors" /> Recipe Formulation
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="text-slate-400 hover:text-accent transition-colors text-sm flex items-center gap-2 group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-slate-700 group-hover:bg-accent transition-colors" /> Food & Beverages
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="text-slate-400 hover:text-accent transition-colors text-sm flex items-center gap-2 group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-slate-700 group-hover:bg-accent transition-colors" /> Cosmetics & Skincare
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="text-slate-400 hover:text-accent transition-colors text-sm flex items-center gap-2 group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-slate-700 group-hover:bg-accent transition-colors" /> Supply Chain
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="text-slate-400 hover:text-accent transition-colors text-sm flex items-center gap-2 group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-slate-700 group-hover:bg-accent transition-colors" /> Private Labeling
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <h4 className="text-white font-semibold mb-6 uppercase tracking-wider text-sm">Contact Information</h4>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
-                <span className="text-slate-400 text-sm leading-relaxed">
-                  123 Business Avenue, Suite 400<br />
-                  Ahmedabad, Gujarat 380015<br />
-                  India
-                </span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-accent flex-shrink-0" />
-                <a href="tel:+919876543210" className="text-slate-400 hover:text-accent transition-colors text-sm">
-                  +91 98765 43210
-                </a>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-accent flex-shrink-0" />
-                <a href="mailto:info@kgcconsultancy.com" className="text-slate-400 hover:text-accent transition-colors text-sm">
-                  info@kgcconsultancy.com
-                </a>
-              </li>
-            </ul>
-          </div>
-
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="border-t border-slate-800 pt-4 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-slate-500 text-sm">
-            &copy; {currentYear} KGC Consultancy. All rights reserved.
-          </p>
-          <div className="flex gap-6">
-            <a href="#" className="text-slate-500 hover:text-accent text-sm transition-colors">Privacy Policy</a>
-            <a href="#" className="text-slate-500 hover:text-accent text-sm transition-colors">Terms of Service</a>
+          {/* Right: Links */}
+          <div className="lg:w-1/2 flex flex-col sm:flex-row gap-8 sm:gap-16 lg:justify-end pr-8">
+            {/* Services */}
+            <div>
+              <h4 className="text-gray-500 text-[12px] mb-3">Services</h4>
+              <ul className="space-y-2">
+                <li><Link to="/services" className="text-gray-200 hover:text-[#ec660c] text-[12px] transition-colors">Food Consulting</Link></li>
+                <li><Link to="/services" className="text-gray-200 hover:text-[#ec660c] text-[12px] transition-colors">Food Contract Manufacturing</Link></li>
+                <li><Link to="/services" className="text-gray-200 hover:text-[#ec660c] text-[12px] transition-colors">Beverage Formulation Services</Link></li>
+                <li><Link to="/services" className="text-gray-200 hover:text-[#ec660c] text-[12px] transition-colors">Functional Food Product Formulation</Link></li>
+                <li><Link to="/services" className="text-gray-200 hover:text-[#ec660c] text-[12px] transition-colors">Food Product Development</Link></li>
+              </ul>
+            </div>
+            
+            {/* Quick Links */}
+            <div>
+              <h4 className="text-gray-500 text-[12px] mb-3">Quick Links</h4>
+              <ul className="space-y-2">
+                <li><Link to="/" className="text-gray-200 hover:text-[#ec660c] text-[12px] transition-colors">Home</Link></li>
+                <li><Link to="/about" className="text-gray-200 hover:text-[#ec660c] text-[12px] transition-colors">About Us</Link></li>
+                <li><Link to="/contact" className="text-gray-200 hover:text-[#ec660c] text-[12px] transition-colors">Contact Us</Link></li>
+                <li><Link to="/team" className="text-gray-200 hover:text-[#ec660c] text-[12px] transition-colors">Our Team</Link></li>
+                <li><Link to="/career" className="text-gray-200 hover:text-[#ec660c] text-[12px] transition-colors">Career</Link></li>
+              </ul>
+            </div>
           </div>
         </div>
-
       </div>
+
+      {/* Middle Section */}
+      <div className="border-t border-[#2a2a2a] relative">
+        <div className="container mx-auto px-4 md:px-8 py-8 md:py-10">
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-8">
+            
+            {/* Left: Let's Build Together + Floating Icons */}
+            <div className="relative w-full lg:w-[55%] flex items-center">
+              
+              {/* Floating Icons Removed */}
+              
+              {/* Massive Text */}
+              <div>
+                <h1 className="text-[44px] sm:text-[56px] md:text-[72px] font-black text-[#222222] leading-[0.9] tracking-tighter uppercase break-words w-full">
+                  LET'S<br/>
+                  BUILD<br/>
+                  TOGETHER
+                </h1>
+              </div>
+            </div>
+
+            {/* Right: Logo & Contacts */}
+            <div className="lg:w-[45%] flex flex-col items-start lg:items-end text-left lg:text-right pr-4">
+              <Link to="/" className="inline-block mb-6">
+                <img 
+                  src="/src/assets/images/logo.png" 
+                  alt="KGC Private Limited" 
+                  className="h-12 md:h-20 w-auto object-contain brightness-0 invert"
+                />
+              </Link>
+              
+              <div className="flex flex-col lg:items-end gap-2.5 text-[12px] text-gray-300">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-5">
+                  <a href="tel:+918130404757" className="flex items-center gap-2 hover:text-white transition-colors">
+                    <Phone className="w-3.5 h-3.5 text-[#ec660c]" /> +91 8130404757
+                  </a>
+                  <a href="tel:+918826313121" className="flex items-center gap-2 hover:text-white transition-colors">
+                    <Phone className="w-3.5 h-3.5 text-[#ec660c]" /> +91 8826313121
+                  </a>
+                </div>
+                <div className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer">
+                  <Mail className="w-3.5 h-3.5 text-[#ec660c]" /> info@kgcconsultancy.com
+                </div>
+                <div className="flex items-center gap-2 text-gray-400">
+                  <MapPin className="w-3.5 h-3.5 text-[#ec660c]" /> C-40 Sector-58, Noida, Uttar Pradesh, 201309
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="border-t border-[#2a2a2a] relative">
+        <div className="container mx-auto px-4 md:px-8 py-3.5">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-3 pr-12">
+            <p className="text-[#666] text-[11px]">
+              &copy; {currentYear}. KGC Consultancy. All Rights Reserved.
+            </p>
+            
+            <div className="flex items-center gap-5">
+              <a href="#" className="text-[#666] hover:text-white transition-colors">
+                <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z" /></svg>
+              </a>
+              <a href="#" className="text-[#666] hover:text-white transition-colors">
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </a>
+              <a href="#" className="text-[#666] hover:text-white transition-colors">
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+              <a href="#" className="text-[#666] hover:text-white transition-colors">
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        {/* Scroll to top button */}
+        <button 
+          onClick={scrollToTop}
+          className="absolute right-0 bottom-0 md:right-4 md:bottom-2 w-8 h-8 bg-[#333] border border-[#444] rounded-sm text-white flex items-center justify-center hover:bg-[#ec660c] hover:border-[#ec660c] transition-colors z-10"
+        >
+          <ChevronUp className="w-4 h-4" />
+        </button>
+      </div>
+
     </footer>
   );
 }

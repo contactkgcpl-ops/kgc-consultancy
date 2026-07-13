@@ -1,7 +1,13 @@
+import { useEffect } from 'react';
+
 export function ContactPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="py-32 text-center text-slate-500">
-      <p>Contact Page (Clean Structure)</p>
+    <div className="min-h-screen bg-white">
+      {/* Blank page as requested */}
     </div>
   );
 }

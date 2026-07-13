@@ -60,7 +60,7 @@ export function HomeBenefits() {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            <span className="text-[#f05a28] font-bold text-[10px] md:text-xs uppercase tracking-[0.2em]">
+            <span className="text-[#ec660c] font-bold text-[10px] md:text-xs uppercase tracking-[0.2em]">
               Benefits
             </span>
           </div>

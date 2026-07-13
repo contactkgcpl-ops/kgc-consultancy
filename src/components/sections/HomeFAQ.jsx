@@ -33,7 +33,7 @@ export function HomeFAQ() {
         
         <div className="text-center mb-8">
           <div className="mb-2">
-            <span className="text-[#f05a28] font-bold text-[10px] md:text-xs uppercase tracking-[0.2em]">FAQ</span>
+            <span className="text-[#ec660c] font-bold text-[10px] md:text-xs uppercase tracking-[0.2em]">FAQ</span>
           </div>
           <h2 className="text-xl md:text-2xl lg:text-[28px] font-semibold text-navy mb-4">
             Frequently Asked Questions

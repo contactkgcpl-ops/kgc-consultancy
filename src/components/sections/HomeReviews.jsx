@@ -80,7 +80,7 @@ export function HomeReviews() {
         
         <div className="text-center mb-10">
           <div className="mb-2">
-            <span className="text-[#f05a28] font-bold text-[10px] md:text-xs uppercase tracking-[0.2em]">
+            <span className="text-[#ec660c] font-bold text-[10px] md:text-xs uppercase tracking-[0.2em]">
               Client Reviews
             </span>
           </div>

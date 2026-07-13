@@ -138,8 +138,8 @@
     @apply inline-flex items-center gap-3 text-white text-sm font-medium 
            px-8 py-4 tracking-wide transition-all duration-300
            hover:-translate-y-0.5 
-           focus:outline-none focus:ring-2 focus:ring-[#f05a28] focus:ring-offset-2;
-    background-color: #f05a28;
+           focus:outline-none focus:ring-2 focus:ring-[#ec660c] focus:ring-offset-2;
+    background-color: #ec660c;
   }
   .btn-primary:hover {
     background-color: #d4491c;
@@ -176,13 +176,13 @@
 /* ── Force Cache Bypass for Accent Color ────────────────────── */
 /* This ensures the new brand orange applies immediately everywhere without a server restart */
 .text-accent, .hover\:text-accent:hover, .group:hover .group-hover\:text-accent {
-  color: #f05a28 !important;
+  color: #ec660c !important;
 }
 .bg-accent, .hover\:bg-accent:hover, .group:hover .group-hover\:bg-accent {
-  background-color: #f05a28 !important;
+  background-color: #ec660c !important;
 }
 .border-accent {
-  border-color: #f05a28 !important;
+  border-color: #ec660c !important;
 }
 .bg-accent\/5 { background-color: rgba(240, 90, 40, 0.05) !important; }
 .bg-accent\/10 { background-color: rgba(240, 90, 40, 0.1) !important; }
