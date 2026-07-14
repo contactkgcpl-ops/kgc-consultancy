@@ -18,6 +18,7 @@ import { ProteinSupplementsPage } from './pages/categories/ProteinSupplements';
 import { CosmeticFormulationPage } from './pages/categories/CosmeticFormulation';
 import { SnacksConfectioneryPage } from './pages/categories/SnacksConfectionery';
 import { SpareServicesPage } from './pages/categories/SpareServices';
+import { FoodPowderConsultingPage } from './pages/categories/FoodPowderConsulting';
 
 // Scroll to top helper to ensure navigating to a new page scrolls up
 import { useEffect } from 'react';
@@ -53,6 +54,7 @@ function App() {
             <Route path="/categories/cosmetic-formulation" element={<CosmeticFormulationPage />} />
             <Route path="/categories/snacks-confectionery" element={<SnacksConfectioneryPage />} />
             <Route path="/categories/spare-services" element={<SpareServicesPage />} />
+            <Route path="/categories/food-powder-consulting" element={<FoodPowderConsultingPage />} />
           </Routes>
         </main>
         

@@ -9,6 +9,7 @@ const CATEGORIES = [
   { label: 'Protein & Health Supplements', href: '/categories/protein-supplements' },
   { label: 'Cosmetic Formulation', href: '/categories/cosmetic-formulation' },
   { label: 'Snacks & Confectionery', href: '/categories/snacks-confectionery' },
+  { label: 'Food Powder Consulting', href: '/categories/food-powder-consulting' },
 ];
 
 const NAV_LINKS = [
@@ -22,6 +23,7 @@ const NAV_LINKS = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -54,22 +56,35 @@ export function Navbar() {
           {/* Desktop Nav Links */}
           <ul className="hidden lg:flex items-center gap-8 ml-8">
             {NAV_LINKS.map((link) => (
-              <li key={link.href} className="relative group">
+              <li 
+                key={link.href} 
+                className="relative"
+                onMouseEnter={() => setActiveDropdown(link.label)}
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
                 <NavLink
                   to={link.href}
+                  onClick={(e) => {
+                    if (link.dropdown) e.preventDefault();
+                  }}
                   className={({ isActive }) => 
-                    `relative flex items-center gap-1.5 text-[14px] font-bold tracking-wide transition-colors duration-300 py-6 group-hover:text-[#ec660c] ${
-                      isActive ? 'text-[#ec660c]' : 'text-[#0b1b3d]'
+                    `relative flex items-center gap-1.5 text-[14px] font-bold tracking-wide transition-colors duration-300 py-6 hover:text-[#ec660c] ${
+                      isActive || activeDropdown === link.label ? 'text-[#ec660c]' : 'text-[#0b1b3d]'
                     }`
                   }
                 >
                   {({ isActive }) => (
                     <>
                       {link.label}
-                      {link.dropdown && <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" strokeWidth={2.5} />}
+                      {link.dropdown && (
+                        <ChevronDown 
+                          className={`w-4 h-4 transition-transform duration-300 ${activeDropdown === link.label ? 'rotate-180' : ''}`} 
+                          strokeWidth={2.5} 
+                        />
+                      )}
                       <span 
                         className={`absolute bottom-4 left-0 h-0.5 bg-[#ec660c] transition-all duration-300 ease-out ${
-                          isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                          isActive ? 'w-full' : (activeDropdown === link.label ? 'w-full' : 'w-0')
                         }`}
                       />
                     </>
@@ -78,7 +93,11 @@ export function Navbar() {
 
                 {/* Premium Dropdown Menu */}
                 {link.dropdown && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 w-[340px] bg-white rounded-[16px] shadow-[0_30px_80px_rgba(0,0,0,0.12)] border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-4 group-hover:translate-y-0 before:absolute before:content-[''] before:-top-6 before:left-0 before:w-full before:h-6">
+                  <div 
+                    className={`absolute top-full left-1/2 -translate-x-1/2 w-[340px] bg-white rounded-[16px] shadow-[0_30px_80px_rgba(0,0,0,0.12)] border border-gray-100 transition-all duration-300 before:absolute before:content-[''] before:-top-6 before:left-0 before:w-full before:h-6 ${
+                      activeDropdown === link.label ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-4'
+                    }`}
+                  >
                     {/* Beautiful Triangle Pointer */}
                     <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white rotate-45 border-l border-t border-gray-100"></div>
                     
@@ -87,6 +106,7 @@ export function Navbar() {
                         <li key={subLink.href}>
                           <Link 
                             to={subLink.href}
+                            onClick={() => setActiveDropdown(null)}
                             className="block px-7 py-3 text-[14px] text-gray-600 font-medium hover:text-[#ec660c] hover:bg-orange-50/50 transition-colors duration-200"
                           >
                             {subLink.label}

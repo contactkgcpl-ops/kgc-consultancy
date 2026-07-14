@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import beverageHero from '../../assets/images/beverage_hero.jpg';
+import heroImage from '../../assets/images/powder_hero.jpg';
 
-export function BeverageConsultingPage() {
+export function FoodPowderConsultingPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -17,22 +17,22 @@ export function BeverageConsultingPage() {
             </h3>
             
             <h1 className="text-[36px] md:text-[48px] lg:text-[56px] font-medium text-black leading-[1.1] mb-3 italic tracking-tight">
-              Beverage Consultant
+              Food Powder Consultant
             </h1>
             
             <h2 className="text-[18px] md:text-[22px] text-black font-medium mb-6">
-              for Startups & Beverage Brands
+              for Startups & Manufacturers
             </h2>
             
             <p className="text-gray-600 text-[13px] md:text-[14px] leading-relaxed mb-8 max-w-3xl font-medium">
-              Partner with <span className="font-bold text-black">KGC Consultancy</span>, the leading beverage consultant in India. We offer expert formulation services for drinks startups and manufacturers.<br className="hidden md:block"/><br className="hidden md:block"/>
-              <span className="font-bold text-black">KGC Consultancy</span> is India's most reliable beverage consulting company. Our team of expert consultants supports your idea development, perfects your drinks, and makes your product scalable and market-ready through practical, industry-based strategies.
+              Partner with <span className="font-bold text-black">KGC Consultancy</span>, the leading food powder product consultant in India. We offer expert formulation services for premixes, instant gravies, and seasoning startups.<br className="hidden md:block"/><br className="hidden md:block"/>
+              <span className="font-bold text-black">KGC Consultancy</span> is India's most reliable powder consulting company. Our team of expert food scientists supports your idea development, perfects your dry recipes, and makes your product scalable and market-ready with maximum shelf life and flowability.
             </p>
             
             <div className="flex flex-wrap gap-2.5 mb-10 max-w-4xl">
               {[
-                "Energy Drinks", "Mocktails", "Syrups", 
-                "Functional Water", "Juices", "Carbonated Drinks"
+                "Seasoning Powders", "Instant Gravy", "Protein Powders", 
+                "Soup Premixes", "Beverage Powders", "Spice Blends"
               ].map((item, idx) => (
                 <span key={idx} className="bg-[#e2e2e2] text-black text-[12px] md:text-[13px] px-4 py-2 rounded-[6px] font-medium transition-colors hover:bg-gray-300 cursor-default">
                   {item}
@@ -53,7 +53,7 @@ export function BeverageConsultingPage() {
       </section>
 
       <section className="w-full border-t border-b border-gray-100 bg-[#f4f4f4]">
-        <img src={beverageHero} alt="KGC Beverage Consulting Lab" className="w-full h-auto block" />
+        <img src={heroImage} alt="KGC Food Powder Consulting" className="w-full h-auto block" />
       </section>
 
       <section className="py-20 md:py-28 bg-[#f4f4f4] border-t border-gray-200">
@@ -63,7 +63,7 @@ export function BeverageConsultingPage() {
             <div>
               <h4 className="text-gray-500 text-[14px] font-medium mb-2">What we cover ?</h4>
               <h2 className="text-[32px] md:text-[40px] italic text-black font-medium leading-[1.1] tracking-tight">
-                Beverage Product Development<br/>
+                Food Powder Development<br/>
                 <span className="not-italic font-bold">Services</span>
               </h2>
             </div>
@@ -76,39 +76,39 @@ export function BeverageConsultingPage() {
             {[
               {
                 num: "01",
-                img: "/src/assets/images/services/beverage_service_1.png",
-                title: "Custom Beverage Formulation",
-                desc: <>Customised <span className="text-red-400 font-medium">beverage formulation</span> for unique taste profiles and health benefits.</>
+                img: "/src/assets/images/services/powder_service_1.jpg",
+                title: "Mango Beverage Powder",
+                desc: <>Expert formulation of <span className="text-red-400 font-medium">mango beverage powders</span> with instant formula, natural taste, and no preservatives.</>
               },
               {
                 num: "02",
-                img: "/src/assets/images/services/beverage_service_2.jpg",
-                title: "Premium Juices & Plant Milks",
-                desc: <>Expert <span className="font-bold text-black">beverage consultant support</span> to create fresh, healthy juices, detox drinks, and plant-based milks.</>
+                img: "/src/assets/images/services/powder_service_2.jpg",
+                title: "Food & Beverage Innovation",
+                desc: <>Comprehensive <span className="font-bold text-black">innovation consulting</span>, developing scalable and delicious powder concepts in our state-of-the-art lab.</>
               },
               {
                 num: "03",
-                img: "/src/assets/images/services/beverage_service_3.png",
-                title: "Syrup & Mocktail Recipes",
-                desc: <>Delicious, textured, and scalable syrup recipes for <span className="text-red-400 font-medium">Beverage brands.</span></>
+                img: "/src/assets/images/services/powder_service_3.jpg",
+                title: "Lemonade Instant Drink Powder",
+                desc: <>Create refreshing, natural flavored <span className="text-red-400 font-medium">lemonade powders</span> that are quick, easy to prepare, and highly scalable.</>
               },
               {
                 num: "04",
-                img: "/src/assets/images/services/beverage_service_4.jpg",
-                title: "Coolers, Sparklers & Refreshers",
-                desc: <>Refreshing fusion beverage recipes with tropical flavors and revitalizing blends, ensuring <span className="text-red-400 font-medium">FSSAI</span> compliance.</>
+                img: "/src/assets/images/services/powder_service_4.jpg",
+                title: "Custom Powder Blends",
+                desc: <>Unique <span className="text-red-400 font-medium">custom powder formulations</span> combining various spices, proteins, and functional ingredients for perfect consistency.</>
               },
               {
                 num: "05",
-                img: "/src/assets/images/services/beverage_service_5.png",
-                title: "Functional Waters",
-                desc: <>Our <span className="font-bold text-black">consultant expertise</span> for balanced formulation and development. It depends on nutrition, science, and taste.</>
+                img: "/src/assets/images/services/powder_service_5.jpg",
+                title: "Natural Fruit Extract Powders",
+                desc: <>Transforming <span className="font-bold text-black">fresh fruits</span> into high-quality, flowable extract powders retaining their natural nutritional value.</>
               },
               {
                 num: "06",
-                img: "/src/assets/images/services/beverage_service_6.png",
-                title: "Shelf-Life Extension",
-                desc: <>Develop <span className="text-red-400 font-medium">premium beverages</span> with expert formulation for maximum flavor and shelf life.</>
+                img: "/src/assets/images/services/powder_service_6.jpg",
+                title: "Mixed Fruit Smoothie Powder",
+                desc: <>Formulate instant, nutritious <span className="text-red-400 font-medium">smoothie powders</span> with real fruits, rich in Vitamin C, and no added preservatives.</>
               }
             ].map((service, idx) => (
               <div key={idx} className="bg-transparent border border-gray-300 rounded-[16px] p-2 flex flex-col">
